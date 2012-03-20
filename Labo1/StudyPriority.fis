@@ -1,0 +1,54 @@
+[System]
+Name='StudyPriority'
+Type='sugeno'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Difficulty'
+Range=[1 10]
+NumMFs=3
+MF1='Easy':'trimf',[-2.6 1 4.53571428571429]
+MF2='Tricky':'trimf',[3.01 5.52 7.01190476190476]
+MF3='Hard':'trimf',[5.48809523809524 10 13.6]
+
+[Input2]
+Name='Importance'
+Range=[1 10]
+NumMFs=3
+MF1='Low':'trimf',[-2.6 1 4.03571428571429]
+MF2='Mid':'trimf',[1.9 5.5 9.1]
+MF3='High':'trimf',[6.4 10 13.6]
+
+[Input3]
+Name='RemainingWork'
+Range=[0 100]
+NumMFs=3
+MF1='mf1':'trimf',[-40 0 40]
+MF2='mf2':'trimf',[10 50 90]
+MF3='mf3':'trimf',[60 100 140]
+
+[Input4]
+Name='RemainingTime'
+Range=[1 10]
+NumMFs=3
+MF1='mf1':'trimf',[-2.6 1 4.6]
+MF2='mf2':'trimf',[1.9 5.5 9.1]
+MF3='mf3':'trimf',[6.4 10 13.6]
+
+[Output1]
+Name='Priority'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'constant',[0]
+MF2='mf2':'constant',[0.5]
+MF3='mf3':'constant',[1]
+
+[Rules]

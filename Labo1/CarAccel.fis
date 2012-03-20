@@ -1,0 +1,38 @@
+[System]
+Name='Car Acceleration'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Speed'
+Range=[-1 1]
+NumMFs=3
+MF1='Slow':'trapmf',[-2 -1 -.2 0]
+MF2='OK':'trimf',[-.2 0 .15]
+MF3='Fast':'trapmf',[0 .15 1 2]
+
+[Input2]
+Name='SpeedChange'
+Range=[-1 1]
+NumMFs=3
+MF1='Slowing':'trapmf',[-2 -1 -.3 0]
+MF2='Constant':'trimf',[-.2 0 .15]
+MF3='Rising':'trapmf',[0 .3 1 2]
+
+[Output1]
+Name='Action'
+Range=[-1 1]
+NumMFs=3
+MF1='Release':'trimf',[-2 -1 0]
+MF2='Nothing':'trimf',[-1 0 1]
+MF3='Push':'trimf',[0 1 2]
+
+[Rules]
